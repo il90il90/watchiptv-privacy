@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WatchIPTV — Privacy Policy</title>
+<style>
+  :root { color-scheme: light dark; }
+  body {
+    max-width: 46rem;
+    margin: 0 auto;
+    padding: 2.5rem 1.25rem 5rem;
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #16161f;
+    background: #fff;
+  }
+  @media (prefers-color-scheme: dark) {
+    body { color: #f2f3f7; background: #16161f; }
+    a { color: #9d9dff; }
+    code { background: #22222e; }
+    hr { border-color: #2c2c3a; }
+    .note { background: #1e1e2a; border-color: #37374a; }
+  }
+  h1 { font-size: 1.75rem; margin-bottom: 0.25rem; }
+  h2 { font-size: 1.15rem; margin-top: 2.25rem; }
+  .sub { color: #6b6b7b; margin-top: 0; }
+  a { color: #4f4fbf; }
+  code { background: #f1f1f5; padding: 0.1em 0.35em; border-radius: 4px; font-size: 0.9em; }
+  hr { border: 0; border-top: 1px solid #e4e4ec; margin: 2.5rem 0; }
+  .note { background: #f6f6fa; border: 1px solid #e4e4ec; border-radius: 10px; padding: 1rem 1.15rem; }
+  ul { padding-left: 1.25rem; }
+  li { margin: 0.4rem 0; }
+</style>
+</head>
+<body>
+
+<h1>WatchIPTV — Privacy Policy</h1>
+<p class="sub">Last updated: 10 August 2026</p>
+
+<p>
+  WatchIPTV is a player for video streams you already have: RTSP cameras on your own network,
+  HLS and other links, and IPTV playlists in <code>.m3u</code> form. It ships with no channels,
+  no playlist and no accounts of its own. Everything it plays is something you add.
+</p>
+
+<div class="note">
+  <strong>The short version.</strong> WatchIPTV has no server. It collects nothing, sends nothing
+  to us, and contains no analytics, no advertising and no tracking of any kind. Your playlists,
+  addresses and passwords are stored encrypted on your own device and are never transmitted
+  anywhere except to the stream you asked it to open — and, if you pair a watch, to your own watch.
+</div>
+
+<h2>What the app stores, and where</h2>
+<ul>
+  <li>
+    <strong>Your streams.</strong> The name, address, folder and options for each stream you add or
+    import. Stream addresses often contain a username and password, so this file is written
+    encrypted, with a key held in the device's hardware-backed keystore. It never leaves the device
+    except as described under “Sending a playlist to your watch”, below.
+  </li>
+  <li>
+    <strong>Your settings.</strong> Preferences such as which streams appear on the watch, whether
+    to prefer the SD sub-stream, and which stream each watch tile shows.
+  </li>
+  <li>
+    <strong>Still pictures.</strong> When you watch a stream, the app may keep one still frame from
+    it so the home screen and the watch tile can show what the stream looks like instead of a black
+    tile. These images are stored in the app's private storage and are never uploaded. You can turn
+    the whole feature off in Settings, which also stops the app connecting to anything you have not
+    opened yourself.
+  </li>
+  <li>
+    <strong>A diagnostics log.</strong> A rolling technical log — what the app tried to play, which
+    transport it used, what the error was — kept in the app's private storage so that a problem can
+    be described accurately. It is never sent automatically. It leaves the device only if you tap
+    “Send diagnostics” yourself and choose where to send it. Passwords are removed before anything
+    is written — every line, including messages from the video player and crash stack traces, is
+    filtered so a stream address is recorded as
+    <code>rtsp://user:••••••@192.168.1.180/stream1</code>. A log does still contain the host
+    names, ports, paths and usernames of your streams, so send it to someone you would show that to.
+  </li>
+</ul>
+<p>
+  All of this lives in the app's own private storage. Uninstalling the app removes it. Nothing is
+  backed up to Google Drive or transferred to a new device: automatic backup and device-to-device
+  transfer are switched off deliberately, so your stream passwords cannot leave your device that way.
+</p>
+
+<h2>Network connections the app makes</h2>
+<p>
+  Only the ones you ask for. WatchIPTV connects to:
+</p>
+<ul>
+  <li>the stream you open, or whose still picture you asked it to refresh;</li>
+  <li>the playlist URL you enter, when you import or refresh a playlist;</li>
+  <li>your paired watch, over Google's Wearable Data Layer, if you use the watch app.</li>
+</ul>
+<p>
+  There is no other destination. The app contacts no server operated by us, because there isn't one.
+</p>
+
+<h2>Sending a playlist to your watch</h2>
+<p>
+  If you use the Wear OS app, the streams you mark for the watch are sent from your phone to your
+  own watch over Google's Wearable Data Layer, which is the standard Android mechanism for phone-to-watch
+  communication and is handled by Google Play services on your own devices. That transfer includes the
+  stream addresses, and therefore any credentials inside them, because the watch has to be able to open
+  the stream. On the watch they are stored encrypted, the same way as on the phone. Only streams you
+  have marked for the watch are sent.
+</p>
+
+<h2>Permissions, and why each one is needed</h2>
+<ul>
+  <li><strong>Internet and network state</strong> — to open the streams and playlists you add.</li>
+  <li><strong>Wi-Fi state and Wi-Fi lock</strong> — a camera on your home network is only reachable
+    over Wi-Fi, so the app can ask the device to bring Wi-Fi up and hold it while a local stream
+    plays. This is used to route the connection, not to determine your location.</li>
+  <li><strong>Notifications</strong> — to show what is playing, with pause and stop controls, while
+    a stream is open on the phone, and on the watch so a stream your phone sends can be opened when
+    the screen is off.</li>
+  <li><strong>Foreground service, media playback</strong> — so the stream is not cut off by the
+    system while it is playing, and so sound carries on when the app is off screen if you tap the
+    keep-playing button. On the phone that means switching to another app; on the watch, the screen
+    turning off.</li>
+</ul>
+<p>
+  That is the complete list: <code>INTERNET</code>, <code>ACCESS_NETWORK_STATE</code>,
+  <code>ACCESS_WIFI_STATE</code>, <code>CHANGE_WIFI_STATE</code>, <code>CHANGE_NETWORK_STATE</code>,
+  <code>WAKE_LOCK</code>, <code>POST_NOTIFICATIONS</code>, <code>FOREGROUND_SERVICE</code> and
+  <code>FOREGROUND_SERVICE_MEDIA_PLAYBACK</code>.
+</p>
+<p>
+  The app asks for no location permission, no contacts, no microphone, no camera hardware, no
+  storage outside its own folder, no full-screen-intent permission, and no advertising identifier.
+</p>
+
+<h2>Children</h2>
+<p>
+  WatchIPTV is a general-purpose media player. It is not directed at children, and it collects no
+  personal information from anyone, including children.
+</p>
+
+<h2>Content</h2>
+<p>
+  WatchIPTV provides no content. It does not host, index, supply, recommend or search for streams,
+  and it comes with none built in. It plays addresses that you enter or import, and you are
+  responsible for having the right to access them.
+</p>
+
+<h2>Third parties</h2>
+<p>
+  The app contains no analytics SDK, no advertising SDK, no crash-reporting service and no social
+  SDK. Its libraries — AndroidX, Jetpack Compose, and Media3/ExoPlayer for playback — run entirely
+  on your device and send nothing anywhere. Google Play services is used only for the phone-to-watch
+  link described above.
+</p>
+
+<h2>Your control</h2>
+<ul>
+  <li>Delete any stream, or clear the whole library, from within the app.</li>
+  <li>Turn off still pictures in Settings, which stops all background connections.</li>
+  <li>Clear the diagnostics log from Settings.</li>
+  <li>Uninstall the app, which deletes everything it stored.</li>
+</ul>
+<p>
+  Because nothing is collected and nothing is transmitted to us, there is no data of yours for us to
+  show you, export or delete on request — there is none to hold.
+</p>
+
+<h2>Changes to this policy</h2>
+<p>
+  If the app ever starts collecting or transmitting anything, this page will say so, with a new date
+  at the top, before that version is released.
+</p>
+
+<hr>
+
+<h2>Contact</h2>
+<p>
+  Questions about this policy, or about the app: <a href="mailto:israel@m-eylon.com">israel@m-eylon.com</a>
+</p>
+
+</body>
+</html>
